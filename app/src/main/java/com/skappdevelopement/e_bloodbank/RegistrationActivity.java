@@ -1,0 +1,51 @@
+package com.skappdevelopement.e_bloodbank;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class RegistrationActivity extends AppCompatActivity {
+
+
+    private Button donorButton;
+    private Button recipientButton;
+    private TextView backButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registration);
+
+        donorButton = findViewById(R.id.donorButton);
+        recipientButton = findViewById(R.id.recipientButton);
+        backButton = findViewById(R.id.backButton);
+
+        recipientButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegistrationActivity.this,RecipientRegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        donorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegistrationActivity.this,DonorRegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegistrationActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
